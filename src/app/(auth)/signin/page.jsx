@@ -1,4 +1,6 @@
+// app/(auth)/signin/page.jsx
 'use client';
+
 import { Check } from '@gravity-ui/icons';
 import {
   Button,
@@ -15,8 +17,6 @@ export default function SignInPage() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-
-    // ভবিষ্যতে এখানে API কল করতে পারো
     console.log('Form Data:', data);
   };
 
@@ -28,7 +28,6 @@ export default function SignInPage() {
         </h2>
 
         <Form className='flex flex-col gap-4' onSubmit={onSubmit}>
-          {/* Email */}
           <TextField
             isRequired
             name='email'
@@ -45,22 +44,18 @@ export default function SignInPage() {
             <FieldError />
           </TextField>
 
-          {/* Password */}
           <TextField
             isRequired
             minLength={8}
             name='password'
             type='password'
             validate={(value) => {
-              if (value.length < 8) {
+              if (value.length < 8)
                 return 'Password must be at least 8 characters';
-              }
-              if (!/[A-Z]/.test(value)) {
+              if (!/[A-Z]/.test(value))
                 return 'Password must contain at least one uppercase letter';
-              }
-              if (!/[0-9]/.test(value)) {
+              if (!/[0-9]/.test(value))
                 return 'Password must contain at least one number';
-              }
               return null;
             }}
           >
@@ -72,7 +67,6 @@ export default function SignInPage() {
             <FieldError />
           </TextField>
 
-          {/* Buttons */}
           <div className='flex gap-2'>
             <Button type='submit' className='w-full'>
               <Check />
@@ -83,14 +77,6 @@ export default function SignInPage() {
             </Button>
           </div>
         </Form>
-
-        {/* Extra Links */}
-        <p className='mt-6 text-center text-sm text-gray-600'>
-          Don’t have an account?{' '}
-          <a href='/signup' className='text-blue-600 hover:underline'>
-            Sign Up
-          </a>
-        </p>
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import ToastProvider from './provider/ToastProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-
 const outfitFont = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
@@ -13,9 +12,8 @@ const outfitFont = Outfit({
   weight: ['400', '500', '600', '700'],
 });
 
-
 export const metadata = {
-  title: 'Pixgen Ai ',
+  title: 'Pixgen Ai',
   description: 'Your one-stop destination for the latest photos.',
 };
 
@@ -23,13 +21,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={` ${outfitFont.className}  min-h-screen flex flex-col bg-background text-foreground`}
+        className={`${outfitFont.className} min-h-screen flex flex-col bg-background text-foreground`}
       >
         <HeroThemeProvider>
-          <Navbar className='container mx-auto' />
-          <main className='container mx-auto flex-1'>{children}</main>
+          <Navbar />
+          <main className='container mx-auto flex-1 px-4'>{children}</main>
           <ToastProvider />
-          <Footer className='container mx-auto' />
+          <Footer />
         </HeroThemeProvider>
       </body>
     </html>
