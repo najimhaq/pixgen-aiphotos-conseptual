@@ -9,8 +9,8 @@ import {
   Label,
   TextField,
 } from '@heroui/react';
-export function Basic() {
-  const onSubmit = () => {
+export function SigninPage() {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
