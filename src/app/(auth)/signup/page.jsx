@@ -10,24 +10,31 @@ import {
   TextField,
 } from '@heroui/react';
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
     // ভবিষ্যতে এখানে API কল করতে পারো
-    console.log('Form Data:', data);
+    console.log('Sign Up Data:', data);
   };
 
   return (
     <div className='flex min-h-screen items-center justify-center bg-gray-50'>
       <div className='w-full max-w-md rounded-lg bg-white p-8 shadow-lg'>
         <h2 className='mb-6 text-center text-2xl font-bold text-gray-800'>
-          Sign In to pixgen
+          Create your pixgen account
         </h2>
 
         <Form className='flex flex-col gap-4' onSubmit={onSubmit}>
+          {/* Name */}
+          <TextField isRequired name='name'>
+            <Label>Full Name</Label>
+            <Input placeholder='John Doe' />
+            <FieldError />
+          </TextField>
+
           {/* Email */}
           <TextField
             isRequired
@@ -76,7 +83,7 @@ export default function SignInPage() {
           <div className='flex gap-2'>
             <Button type='submit' className='w-full'>
               <Check />
-              Sign In
+              Sign Up
             </Button>
             <Button type='reset' variant='secondary' className='w-full'>
               Reset
@@ -86,9 +93,9 @@ export default function SignInPage() {
 
         {/* Extra Links */}
         <p className='mt-6 text-center text-sm text-gray-600'>
-          Don’t have an account?{' '}
-          <a href='/signup' className='text-blue-600 hover:underline'>
-            Sign Up
+          Already have an account?{' '}
+          <a href='/signin' className='text-blue-600 hover:underline'>
+            Sign In
           </a>
         </p>
       </div>
