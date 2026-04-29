@@ -1,4 +1,4 @@
-import { Button } from '@heroui/react';
+
 import Link from 'next/link';
 
 const Banner = () => {
@@ -16,15 +16,15 @@ const Banner = () => {
 
           <div className='flex gap-4'>
             <Link href='#'>
-              <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>
+              <button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>
                 Generate Now
-              </Button>
+              </button>
             </Link>
 
             <Link href='/pricing'>
-              <Button variant='outline' className='text-white'>
+              <button variant='outline' className='text-white'>
                 View Pricing
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
